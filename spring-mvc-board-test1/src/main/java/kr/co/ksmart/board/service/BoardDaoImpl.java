@@ -13,7 +13,7 @@ public class BoardDaoImpl implements BoardDao{
 	public int boardAdd(Board board) {
 		System.out.println("BoardDaoImpl.boardAdd()");
 		// TODO Auto-generated method stub
-		return sqlSession.insert("kr.co.ksmart.board.service.boardAdd", board);
+		return sqlSession.insert("kr.co.ksmart.board.service.BoardMapper.boardAdd", board);
 	}
 
 }
