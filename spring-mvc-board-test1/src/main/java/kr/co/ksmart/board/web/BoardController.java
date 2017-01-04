@@ -16,14 +16,14 @@ public class BoardController {
 	@RequestMapping(value="/board/boardAdd", method=RequestMethod.GET)
 	public String boardAdd(){
 		System.out.println("BoardController.boardAdd()GET1");
-		System.out.println("뭔데");
+		System.out.println("거지같애");
 		return "/board/boardAdd";
 	}
 	@RequestMapping(value="/board/boardAdd", method=RequestMethod.POST)
 	public String boardAdd(Board board){
 		System.out.println("BoardController.boardAdd()POST");
 		System.out.println("board : "+board);
-		System.out.println("왜출력이안돼;;ㅡㅡ");
+		System.out.println("이제됨?");
 		boardService.boardInsert(board);
 		return "redirect:/board/boardList";
 	}
