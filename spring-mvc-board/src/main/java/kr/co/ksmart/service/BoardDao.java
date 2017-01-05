@@ -1,6 +1,10 @@
 package kr.co.ksmart.service;
 
+import java.util.List;
+import java.util.Map;
+
 public interface BoardDao {
-	public int insertBoard(Board board);
-	
+	int insertBoard(Board board);
+	List<Board> selectBoardListPerPage(Map<String, Integer> map);
+	int selectTotalBoardCount();
 }
