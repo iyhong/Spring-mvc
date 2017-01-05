@@ -50,13 +50,35 @@ public class BoardController {
 	}
 	@RequestMapping(value="/board/boardView")
 	public String boardView(Model model, Board board){
-		System.out.println("boardView");
+		System.out.println("boardView 호출");
 		System.out.println("board:"+board);
 		Board returnBoard = boardService.getBoard(board);
 		System.out.println("returnBoard:"+returnBoard);
 		model.addAttribute("board",returnBoard);
 		return "/board/boardView";
 	}
+	@RequestMapping(value="/board/boardModify", method = RequestMethod.GET)
+	public String boardUpdate(Model model, Board board){
+		System.out.println("boardView GET 호출");
+		Board returnBoard = boardService.getBoard(board);
+		model.addAttribute("board",returnBoard);
+		return "/board/boardModify";
+	}
 	
+	@RequestMapping(value="/board/boardModify", method = RequestMethod.POST)
+	public String boardUpdate(Board board){
+		System.out.println("boardView GET 호출");
+		int result = boardService.modifyBoard(board);
+		
+		if(result>0){
+			
+			return "redirect:/board/boardList";
+		}
+		return "/board/boardModify";
+	}
 	
+	public String boardDelete(Board board){
+		
+		return "/board/";
+	}
 }

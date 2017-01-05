@@ -48,5 +48,11 @@ public class BoardServiceImpl implements BoardService {
 	public Board getBoard(Board board) {
 		return boardDao.selectBoard(board);
 	}
+
+	@Override
+	public int modifyBoard(Board board) {
+		// TODO Auto-generated method stub
+		return boardDao.updateBoard(board);
+	}
 	
 }
