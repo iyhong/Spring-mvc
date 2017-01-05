@@ -7,4 +7,5 @@ public interface BoardService {
 	Map<String, Object> getBoardListPerCurrentPage(int currentPage);
 	Board getBoard(Board board);
 	int modifyBoard(Board board);
+	int removeBoard(Board board);
 }

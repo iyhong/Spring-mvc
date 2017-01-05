@@ -50,4 +50,8 @@
 			board_content=#{boardContent}
 			WHERE board_no=#{boardNo} AND board_pw=#{boardPw}
 	</update>
+	<delete id="deleteBoard" parameterType="kr.co.ksmart.service.Board">
+		DELETE FROM board
+		WHERE board_no=#{boardNo} AND board_pw=#{boardPw}
+	</delete>
 </mapper>

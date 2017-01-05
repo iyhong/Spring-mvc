@@ -66,19 +66,30 @@ public class BoardController {
 	}
 	
 	@RequestMapping(value="/board/boardModify", method = RequestMethod.POST)
-	public String boardUpdate(Board board){
+	public String boardUpdateAction(Model model, Board board){
 		System.out.println("boardView GET 호출");
 		int result = boardService.modifyBoard(board);
-		
 		if(result>0){
-			
-			return "redirect:/board/boardList";
+			model.addAttribute("board",boardService.getBoard(board));
+			return "/board/boardView";
 		}
 		return "/board/boardModify";
 	}
-	
+	@RequestMapping(value="/board/boardRemove", method = RequestMethod.GET)
+	public String boardDelete(Board board, Model model){
+		System.out.println("boardDelete GET 호출");
+		System.out.println("boardNo:"+board.getBoardNo());
+		//model.addAttribute("boardNo",board.getBoardNo());
+		return "/board/boardRemove";
+	}
+	@RequestMapping(value="/board/boardRemove", method = RequestMethod.POST)
 	public String boardDelete(Board board){
-		
-		return "/board/";
+		System.out.println("boardDelete POST 호출");
+		int result = boardService.removeBoard(board);
+		System.out.println("result:"+result);
+		if(result >0){
+			return "redirect:/board/boardList";
+		}
+		return "/board/boardRemove";
 	}
 }

@@ -9,4 +9,5 @@ public interface BoardDao {
 	int selectTotalBoardCount();
 	Board selectBoard(Board board);
 	int updateBoard(Board board);
+	int deleteBoard(Board board);
 }

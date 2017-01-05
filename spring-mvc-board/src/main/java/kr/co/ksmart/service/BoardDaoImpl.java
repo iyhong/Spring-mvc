@@ -45,4 +45,10 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.update(BOARD_NS+"updateBoard",board);
 	}
 
+	@Override
+	public int deleteBoard(Board board) {
+		// TODO Auto-generated method stub
+		return sqlSession.delete(BOARD_NS+"deleteBoard",board);
+	}
+
 }
