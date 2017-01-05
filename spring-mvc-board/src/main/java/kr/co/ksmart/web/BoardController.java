@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.co.ksmart.service.Board;
 import kr.co.ksmart.service.BoardService;
@@ -76,20 +77,23 @@ public class BoardController {
 		return "/board/boardModify";
 	}
 	@RequestMapping(value="/board/boardRemove", method = RequestMethod.GET)
-	public String boardDelete(Board board, Model model){
-		System.out.println("boardDelete GET 호출");
-		System.out.println("boardNo:"+board.getBoardNo());
+	public String boardDelete(Board board){
+		//System.out.println("boardDelete GET 호출");
+		//System.out.println("boardNo:"+board.getBoardNo());
 		//model.addAttribute("boardNo",board.getBoardNo());
+		
 		return "/board/boardRemove";
 	}
 	@RequestMapping(value="/board/boardRemove", method = RequestMethod.POST)
-	public String boardDelete(Board board){
+	public String boardDelete(Model model, Board board){
 		System.out.println("boardDelete POST 호출");
 		int result = boardService.removeBoard(board);
 		System.out.println("result:"+result);
+		
 		if(result >0){
 			return "redirect:/board/boardList";
 		}
+		//model.addAttribute("boardNo",board.getBoardNo());
 		return "/board/boardRemove";
 	}
 }
