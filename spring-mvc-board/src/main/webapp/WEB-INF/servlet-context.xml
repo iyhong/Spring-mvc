@@ -27,9 +27,9 @@
 	<!-- dataSource 객체생성 property주입으로 -->
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/jjdev"/>
+        <property name="url" value="jdbc:mysql://127.0.0.1:3306/jjdev?useUnicode=true&amp;characterEncoding=euckr"/>
         <property name="username" value="root"/>
-        <property name="password" value="java0000"/>
+        <property name="password" value="1234"/>
     </bean>
 	
     <!-- mybatis 세션생성을 위한 팩토리 생성 -->

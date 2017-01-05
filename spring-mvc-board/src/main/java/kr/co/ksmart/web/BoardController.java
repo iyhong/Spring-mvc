@@ -60,7 +60,7 @@ public class BoardController {
 	}
 	@RequestMapping(value="/board/boardModify", method = RequestMethod.GET)
 	public String boardUpdate(Model model, Board board){
-		System.out.println("boardView GET 호출");
+		System.out.println("boardModify GET 호출");
 		Board returnBoard = boardService.getBoard(board);
 		model.addAttribute("board",returnBoard);
 		return "/board/boardModify";
@@ -68,7 +68,7 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardModify", method = RequestMethod.POST)
 	public String boardUpdateAction(Model model, Board board){
-		System.out.println("boardView GET 호출");
+		System.out.println("boardModify POST 호출");
 		int result = boardService.modifyBoard(board);
 		if(result>0){
 			model.addAttribute("board",boardService.getBoard(board));
