@@ -34,4 +34,14 @@
 		ORDER BY board_date
 		DESC LIMIT #{beginRow}, #{pagePerRow}
 	</select>
+	<select id="selectOneBoard" parameterType="kr.co.ksmart.service.Board" resultType="kr.co.ksmart.service.Board">
+		SELECT
+			board_no as boardNo,
+			board_title as boardTitle,
+			board_user as boardUser,
+			board_date as boardDate,
+			board_content as boardContent
+		FROM board
+		WHERE board_no=#{boardNo}
+	</select>
 </mapper>

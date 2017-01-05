@@ -24,6 +24,7 @@ public class BoardController {
 			//String형으로 무조건받아지는데 자동으로 int로 형변환, 안넘어오면 1로 초기화
 			@RequestParam(value="currentPage", defaultValue="1") int currentPage){
 		System.out.println("boardList 호출");
+		System.out.println("currentPage:"+currentPage);
 		//결과를 Map에 담는다
 		Map<String, Object> returnMap = boardService.getBoardListPerCurrentPage(currentPage);
 		//Map의 내용을 request에 담지못하니까 spring에서 지원하는 Model에 담는다
@@ -36,15 +37,25 @@ public class BoardController {
 	
 	@RequestMapping(value="/board/boardAdd",method = RequestMethod.GET)
 	public String boardAdd(){
-		System.out.println("boardAdd 호출");
+		System.out.println("boardAdd GET 호출");
 		return "/board/boardAdd";	//포워딩
 	}
 	
 	@RequestMapping(value="/board/boardAdd",method = RequestMethod.POST)
 	public String boardAdd(Board board){
+		System.out.println("boardAdd POST 호출");
 		System.out.println(board);
 		boardService.addBoard(board);
 		return "redirect:/board/boardList";
+	}
+	@RequestMapping(value="/board/boardView")
+	public String boardView(Model model, Board board){
+		System.out.println("boardView");
+		System.out.println("board:"+board);
+		Board returnBoard = boardService.getBoard(board);
+		System.out.println("returnBoard:"+returnBoard);
+		model.addAttribute("board",returnBoard);
+		return "/board/boardView";
 	}
 	
 	

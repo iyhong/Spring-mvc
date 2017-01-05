@@ -7,4 +7,5 @@ public interface BoardDao {
 	int insertBoard(Board board);
 	List<Board> selectBoardListPerPage(Map<String, Integer> map);
 	int selectTotalBoardCount();
+	Board selectBoard(Board board);
 }

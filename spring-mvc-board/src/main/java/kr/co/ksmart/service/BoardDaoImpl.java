@@ -33,4 +33,10 @@ public class BoardDaoImpl implements BoardDao {
 		return sqlSession.selectOne(BOARD_NS+"selectTotalBoardCount");
 	}
 
+	@Override
+	public Board selectBoard(Board board) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(BOARD_NS+"selectOneBoard", board);
+	}
+
 }

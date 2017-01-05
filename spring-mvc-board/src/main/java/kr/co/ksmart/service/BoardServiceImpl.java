@@ -35,12 +35,18 @@ public class BoardServiceImpl implements BoardService {
 		map.put("beginRow", beginRow);
 		map.put("pagePerRow", pagePerRow);
 		List<Board> list = boardDao.selectBoardListPerPage(map);
+		System.out.println("BoardList : "+list);
 		
 		Map<String, Object> returnMap = new HashMap<String, Object>();
 		returnMap.put("totalRowCount", totalRowCount);
 		returnMap.put("lastPage", lastPage);
 		returnMap.put("list", list);
 		return returnMap;
+	}
+
+	@Override
+	public Board getBoard(Board board) {
+		return boardDao.selectBoard(board);
 	}
 	
 }
