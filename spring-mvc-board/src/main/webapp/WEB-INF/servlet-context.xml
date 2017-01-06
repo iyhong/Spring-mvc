@@ -29,7 +29,7 @@
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://127.0.0.1:3306/jjdev?useUnicode=true&amp;characterEncoding=euckr"/>
         <property name="username" value="root"/>
-        <property name="password" value="1234"/>
+        <property name="password" value="java0000"/>
     </bean>
 	
     <!-- mybatis 세션생성을 위한 팩토리 생성 -->

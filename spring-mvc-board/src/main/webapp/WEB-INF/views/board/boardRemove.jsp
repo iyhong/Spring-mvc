@@ -7,6 +7,7 @@
 <title>BOARD REMOVE FORM</title>
 </head>
 <body>
+${param.boardNo}
     <form action="<c:url value='/board/boardRemove'/>" method="post">
         <input name="boardNo" value="${param.boardNo}" type="hidden"/>
         <div>비밀번호확인 :</div>

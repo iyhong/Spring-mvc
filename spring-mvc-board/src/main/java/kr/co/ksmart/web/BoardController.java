@@ -8,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
 
 import kr.co.ksmart.service.Board;
 import kr.co.ksmart.service.BoardService;
@@ -33,7 +32,7 @@ public class BoardController {
 		model.addAttribute("lastPage", returnMap.get("lastPage"));
 		model.addAttribute("list", returnMap.get("list"));
 		model.addAttribute("currentPage", currentPage);
-		return "/board/boardList";	//포워딩
+		return "board/boardList";	//포워딩
 	}
 	
 	@RequestMapping(value="/board/boardAdd",method = RequestMethod.GET)
